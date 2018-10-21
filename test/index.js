@@ -40,6 +40,23 @@ describe('pid-controller', () => {
     ctr.dt.should.equal(options.dt);
   });
 
+  it('should error if not set', () => {
+    let ctr = new Controller();
+    (function () {
+      ctr.update(1)
+    }).should.throw();
+  });
+
+
+  it('should have set the coefficient from empty constructor', () => {
+    let ctr = new Controller();
+    ctr.setTunings(options.k_p, options.k_i, options.k_d, options.dt);
+    ctr.k_p.should.equal(options.k_p);
+    ctr.k_i.should.equal(options.k_i);
+    ctr.k_d.should.equal(options.k_d);
+    ctr.dt.should.equal(options.dt);
+  });
+
   it('should set the target', () => {
     let v = 120; // 120km/h
     ctr.setTarget(v);

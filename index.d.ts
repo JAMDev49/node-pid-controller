@@ -29,6 +29,8 @@ declare class Controller {
     constructor(options: Controller.Options);
     constructor(k_p?: number, k_i?: number, k_d?: number, dt?: number);
 
+    public setTunings(k_p?: number, k_i?: number, k_d?: number, dt?: number)
+
     public setTarget(target: number): void;
 
     public update(currentValue: number): number;
